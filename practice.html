@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Bit</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="images/lightning-bit-center-logo.png" type="image/x-icon">
+
+
+
+
+    <style>
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        #nav-buutons a {
+            text-decoration: none;
+            color: #25692b;
+            font-weight: bold;
+            background: none;
+            cursor: pointer;
+            transition: color 0.4s linear;
+            padding: 0.5rem 1rem;
+            position: relative;
+
+        }
+
+        #nav-buutons a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #0056b3;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+
+        #nav-buutons a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        #nav-buutons a:hover {
+            color: #4727bd;
+            text-decoration-color: #4727bd;
+            text-decoration-thickness: 1px;
+        }
+
+        #btn1 {
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #fafcfd;
+            font-weight: bold;
+            background: none;
+            /* border: 1px solid #0056b3; */
+            background-color: rgb(13, 17, 13);
+            border-radius: 20px;
+            padding: 10px 15px;
+            min-width: 40px;
+
+            cursor: pointer;
+            transition: color 0.4s linear;
+        }
+
+        #btn1:hover {
+            background-color: rgb(29, 202, 107);
+            color: #072706;
+            text-decoration-line: none;
+            text-shadow: #072706;
+            text-decoration-color: #072706;
+        }
+
+        .slider {
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .slides {
+            display: flex;
+            /* Use flex to ensure all slides are aligned */
+            transition: transform 0.5s ease-in-out;
+            animation: slide-animation 10s ease-in-out infinite;
+        }
+
+        .slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 200px;
+            margin-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 500px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        @keyframes slide-animation {
+
+            0%,
+            10% {
+                transform: translateX(0);
+            }
+
+            15%,
+            25% {
+                transform: translateX(-14.2857%);
+            }
+
+            30%,
+            40% {
+                transform: translateX(-28.5714%);
+            }
+
+            45%,
+            55% {
+                transform: translateX(-42.8571%);
+            }
+
+            60%,
+            70% {
+                transform: translateX(-57.1428%);
+            }
+
+            75%,
+            85% {
+                transform: translateX(-71.4285%);
+            }
+
+            90%,
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .clients-slider {
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .clients-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            animation: clients-slide-animation 10s ease-in-out infinite;
+        }
+
+        .clients-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 200px;
+            box-sizing: border-box;
+            margin-right: 20px;
+        }
+
+        .clients-slide img {
+            max-width: 100%;
+            max-height: 500px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        @keyframes clients-slide-animation {
+
+            0%,
+            10% {
+                transform: translateX(0);
+            }
+
+            15%,
+            25% {
+                transform: translateX(-14.2857%);
+            }
+
+            30%,
+            40% {
+                transform: translateX(-28.5714%);
+            }
+
+            45%,
+            55% {
+                transform: translateX(-42.8571%);
+            }
+
+            60%,
+            70% {
+                transform: translateX(-57.1428%);
+            }
+
+            75%,
+            85% {
+                transform: translateX(-71.4285%);
+            }
+
+            90%,
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .footer-nav a {
+
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+            background: none;
+            cursor: pointer;
+            transition: color 0.4s linear;
+            padding: 0.5rem 0;
+            position: relative;
+
+
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            /* Adjusted height for better visibility */
+            background: #0056b3;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+
+        .footer-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .footer-nav ul li {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .footer-nav ul li a {
+            text-decoration: none;
+            display: inline-block;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light" id="home">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/lightning-bit-logo.png" alt="Logo" width="150" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end bg-light" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item" id="nav-buutons">
+                        <a class="nav-link active  " aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item " id="nav-buutons">
+                        <a class="nav-link " href="#aboutus">About Us</a>
+                    </li>
+                    <li class="nav-item" id="nav-buutons">
+                        <a class="nav-link  " href="#services">Services</a>
+                    </li>
+                    <li class="nav-item" id="nav-buutons">
+                        <a class="nav-link  " href="#contactus">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-3 text-center text-sm-start">
+        <div class="row p-3 bg-primary text-white ">
+            <div class="col-md-6 pt-5">
+                <p>Lighning Bit</p>
+                <h1 class="display-3 fw-bold pt-1">Driving Innovation and Facilitation through Technology</h1>
+                <p class="py-4">Lightning Bit has established itself as a leading IT services company that trusted by
+                    clients worldwide.</p>
+                <a href="#contactus" id="btn1" class="btn btn-lg">Ask a Question</a>
+
+            </div>
+
+            <div class="col-md-6 pt-5 text-center">
+                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/Asset-2@3x-8.png" width="80%" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container bg-light py-5 text-center " id="aboutus">
+        <div class="row pt-5 ">
+            <div class="col-12">
+                <h1 class="text-primary">About Us</h1>
+                <p class="pt-3 "> Lightning Bit is a privately owned IT services company based in Peshawar, Pakistan,
+                    with
+                    sub-offices
+                    globally. </p>
+                <p>
+                    Established in 1999, the company strives for excellence in the field, offering complete IT
+                    solutions to clients in various sectors.</p>
+                <p class="">Lightning Bit offers consulting services and technology
+                    solutions to both government and private sectors, including specialized </p>
+
+                <p>capabilities in system analysis and design, software application development, cross-platform
+                    integration, contract programming,</p>
+                <p>documentation services, technical system design, customization, security solutions, IT consultancy,
+                    and training.</p>
+            </div>
+
+        </div>
+
+        <div class="row pt-5 pb-5">
+            <div class="col-md-3">
+                <div class="counter" data-bs-count="150" data-bs-prefix="+">0 </div>
+
+
+                <h5 class="">Projects Completed</h5>
+            </div>
+            <div class="col-md-3">
+                <div class="counter" data-bs-count="250" data-bs-prefix="+">0</div>
+                <h5 class="">Happy Customers</h5>
+            </div>
+            <div class="col-md-3">
+                <div class="counter" data-bs-count="120" data-bs-prefix="+">0</div>
+                <h5 class="">Awards</h5>
+            </div>
+
+            <div class="col-md-3">
+                <div class="counter" data-bs-count="24">0</div>
+                <h5 class="">Years of Experience</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5 px-5">
+        <div class="row">
+            <div class="col-md-6 ">
+                <h2 class="text-primary text-center text-md-start">
+                    Lightning Bit has established itself as a leading IT services company that is trusted by
+                    clients worldwide.
+                </h2>
+                <div class="accordion pt-5" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold text-primary" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Excellence
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse  collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We strive for excellence in everything we do and are dedicated to delivering the
+                                    highest quality IT solutions and services to our clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold  text-primary" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Innovation
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We continuously seek to innovate and stay ahead of the curve by keeping up-to-date
+                                    with the
+                                    latest trends and emerging technologies in the IT industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold  text-primary" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Customer Centricity
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We put our clients at the center of everything we do and focus on providing solutions
+                                    that cater
+                                    to their unique business needs and requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold  text-primary" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Integrity
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We conduct our business with the highest levels of honesty, ethics, and
+                                    professionalism, and
+                                    strive to build long-lasting relationships with our clients based on trust and
+                                    mutual respect.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold  text-primary" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                aria-controls="collapseFive">
+                                Teamwork
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We believe in the power of collaboration and teamwork, and work together with our
+                                    clients to
+                                    achieve
+                                    common goals and objectives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center pt-5">
+                <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/PngItem_1950116.png" width="80%"
+                    alt="image"> <br>
+                <img class="pt-5"
+                    src="https://ifastsolutions.com/wp-content/uploads/2023/04/PngItem_1127600-300x242.png" width="40%"
+                    alt="image">
+                <img class="pt-5"
+                    src="https://ifastsolutions.com/wp-content/uploads/2023/04/PngItem_6858548-300x227.png" width="40%"
+                    alt="img">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container pb-5" id="services">
+        <div class="row text-center pt-5 ">
+            <div class="col-12">
+                <h2 class="text-primary">What We Do</h2>
+                <p class="pt-3">We specialize in delivering high-quality IT solutions and services that cater to the
+                    unique business needs of our valued clients, while maintaining the highest standards of excellence
+                    in the industry.
+                </p>
+            </div>
+        </div>
+        <div class="row text-center text-md-center pt-3">
+            <div class="col-12">
+                <div class="row ">
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class=" bi bi-code-slash text-primary display-6"></i>
+                        <h3 class="pt-2">Software Development</h3>
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5 ">
+                        <i class="bi bi-phone text-primary display-6"></i>
+                        <h3 class="pt-2">App Development</h3>
+
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-cloud text-primary display-6"></i>
+                        <h3 class="p-2">Cloud Computing</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-file-earmark text-primary display-6"></i>
+                        <h3 class="p-2">ERP</h3>
+
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-database-fill text-primary display-6"></i>
+                        <h3 class="p-2">Data Science</h3>
+
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-bar-chart-fill text-primary display-6"></i>
+                        <h3 class="p-2">Capacity Building</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-share-fill text-primary display-6"></i>
+                        <h3 class=" p-2">Project Management</h3>
+
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-spellcheck text-primary display-6"></i>
+                        <h3 class="p-2">Testing & Validation Services</h3>
+
+                    </div>
+                    <div class="col-md-4 border border-primary pt-5 p-5">
+                        <i class="bi bi-globe text-primary display-6"></i>
+                        <h3 class="p-2">Digitalization</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row py-5 text-center text-primary">
+            <div class="col-md-12 ">
+                <h2 class="pb-5">Our Partnerships / Certification</h2>
+
+
+                <div class="slider pt-5">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/Odoo.png" alt="odoo logo">
+                        </div>
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/ISO_9001-2015.png"
+                                alt="iso logo">
+                        </div>
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/qa.png" alt="technic logo">
+                        </div>
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/pseb.png" alt="pseb logo">
+                        </div>
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/pasha-logo.png"
+                                alt="pasha logo">
+                        </div>
+                        <div class="slide">
+                            <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/kpitb.png" alt="kpitb logo">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row py-5 text-center text-primary ">
+            <div class="col-12">
+                <h2 class="pb-5">Our Clients</h2>
+
+                <div class="clients-container">
+                    <div class="clients-slider">
+                        <div class="clients-slides">
+                            <div class="clients-slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/ff.png"
+                                    alt="steel logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/ICSVpXWm.jpeg"
+                                    alt="cecos logo">
+
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/iqra-national-university.jpg"
+                                    width="100" alt="inu logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/Jeddah-Chamber-of-Commerce-and-Industry-jcci.jpg"
+                                    alt="jeddah chamber logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/logo.jpg"
+                                    alt="hayatabad medical complex logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/MSI.png"
+                                    alt="tetra tech company logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/srsp.png"
+                                    alt="Srsp logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/unnamed.png" alt="">
+
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/584823e0cef1014c0b5e49c4.png"
+                                    alt="usaid logo">
+
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/e209d530-bb65-48e5-b06d-656b970370b8_16x9_600x338.jpg"
+                                    alt="mbc logo">
+
+                            </div>
+                            <div class="slidee">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/undp-logo-preview.png"
+                                    alt="undp logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2024/02/logo-mis.png"
+                                    alt="ueas swat logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2024/02/PMC-LOGO2.png"
+                                    alt="pmc logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/1478776119.jpg"
+                                    alt="FC logo">
+                            </div>
+                            <div class="slide">
+                                <img src="https://ifastsolutions.com/wp-content/uploads/2023/05/download.jpg"
+                                    alt="pico logo">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-5 text-center text-md-start">
+        <div class="row  text-black pb-5">
+            <div class="col-md-6 pt-5">
+                <h1 class="text-primary">Empowering Business Growth with Innovative IT Solutions and Services from
+                    iFaST Solutions</h1>
+                <p class="pb-2">At Lightning Bit, we are committed to driving innovation and facilitation through
+                    the latest
+                    technologies. As an innovative IT services company, we pride ourselves on staying ahead of the
+                    curve
+                    by introducing new ideas and methods that result in positive change and improvement for our
+                    clients.
+                    Our facilitation services are designed to streamline processes and improve efficiency, ensuring
+                    that
+                    our clients can focus on what matters most – growing their business. By leveraging the power of
+                    technology, we empower our clients to achieve their business goals and stay ahead of the
+                    competition. Trust Lightning Bit to drive innovation and facilitation through technology and
+                    take
+                    your business to new heights.</p>
+                <a href="#contactus" id="btn1" class="btn btn-lg">Ask a Question</a>
+
+            </div>
+
+            <div class="col-md-6 pt-5 text-center text-md-end">
+                <img src="https://ifastsolutions.com/wp-content/uploads/2023/04/PngItem_2430290-206x300.png" width="50%"
+                    alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5 p-5 py-5" id="contactus">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 class="text-primary">Contact Us</h1>
+                <p>We would love to hear you.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <h2 class="text-primary pt-5 ">Peshawar Office</h2>
+                <p>Plot No 2, Opposite Q Mall, Adjacent Street Tehkal Bala BRT Station,<br>
+                    University Road, Peshawar, Khyber Pakhtunkhwa</p>
+                <h2 class="text-primary pt-3">Islamabad Office</h2>
+                <p>Office No 13, 2nd Floor, Select Center, F-11 Markaz, Islamabad</p>
+                <p>+92-334-5672853</p>
+                <p class="pb-3"><a href="mailto:uzairnazir42@gmail.com">uzairnazir42@gmail.com</a></p>
+                <a href="https://www.linkedin.com/in/uzair-nazir-3ba632282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank"><img
+                        src="http://pluspng.com/img-png/linkedin-icon-vector-png-linkedin-icon-image-31474-linkedin-png-1218.png"
+                        width="30" alt="LinkedIn"></a>
+
+                <a href="mailto:uzairnazir42@gmail.com" target="_blank"><img
+                        src="https://static.vecteezy.com/system/resources/previews/002/557/425/original/google-mail-icon-logo-isolated-on-transparent-background-free-vector.jpg"
+                        width="30" alt="Email"></a>
+            </div>
+
+            <div class="col-md-6 text-center pt-5">
+                <iframe class="map w-100 h-100"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425289.9905113831!2d72.75644387489402!3d33.61625094142365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515c3bdb02b6!2sIslamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1722419278783!5m2!1sen!2s"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-5 bg-light ">
+        <div class="row">
+            <div class="col-md-3 text-center text-md-start ">
+                <P class="text-primary fw-bold">+92-334-5672853 </P>
+                <p><a href="mailto:uzairnazir42@gmail.com">uzairnazir42@gmail.com</a></p>
+            </div>
+            <div class="col-md-6 text-center mb-5 fw-bold pt-4">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a class="p-2" href="#home">Home</a></li>
+                        <li><a class="p-2" href="#aboutus">About Us</a></li>
+                        <li><a class="p-2" href="#services">Services</a></li>
+                        <li><a class="p-2" href="#contactus">Contact Us</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 pt-1 text-center text-md-end">
+                <a href="https://www.linkedin.com/in/uzair-nazir-3ba632282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank"><img
+                        src="http://pluspng.com/img-png/linkedin-icon-vector-png-linkedin-icon-image-31474-linkedin-png-1218.png"
+                        width="30" alt="LinkedIn"></a>
+                <a href="mailto:uzairnazir42@gmail.com" target="_blank"><img
+                        src="https://static.vecteezy.com/system/resources/previews/002/557/425/original/google-mail-icon-logo-isolated-on-transparent-background-free-vector.jpg"
+                        width="30" alt="Email"></a>
+            </div>
+        </div>
+        <div class="row pt-5 text-center">
+            <p class="fw-bold text-primary">© 2024 iFaST Solutions</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const updateCounter = () => {
+                    const target = +counter.getAttribute('data-bs-count');
+                    const count = +counter.innerText;
+                    const increment = target / 200;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 10);
+
+                    } else {
+                        const prefix = counter.getAttribute('data-bs-prefix') || '';
+                        counter.innerText = target + prefix;
+                    }
+                };
+                updateCounter();
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
